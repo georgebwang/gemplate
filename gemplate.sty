@@ -1,5 +1,5 @@
-\NeedsTeXFormat{LaTeX2e} 
-\ProvidesPackage{gemplate}[2022/05/13]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gemplate}[2023/03/24]
 
 
 \RequirePackage{graphicx}
@@ -25,7 +25,7 @@
 \RequirePackage{todonotes}
 \RequirePackage{enumitem}
 \RequirePackage[american]{babel}
-\RequirePackage[backend=biber,style=apa,uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2,doi=false,annotation=false]{biblatex}
+\RequirePackage[backend=biber,style=apa,uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2,doi=false,annotation=false,natbib=true]{biblatex}
 % first cite use full author list, all others use `et al'
 \AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{99}}}
 % remove the letter (2021a, 2021b) following same first author surname
@@ -67,9 +67,9 @@
 
 
 % define the use of \thanks{} symbol
-\def\@fnsymbol#1{\ensuremath{\ifcase#1\or \mathsection\or \dagger\or 
-    \mathparagraph\or \ddagger\or \|\or **\or \dagger\dagger
-   \or \ddagger\ddagger \else\@ctrerr\fi}}
+\def\@fnsymbol#1{\ensuremath{\ifcase#1\or \mathsection\or \dagger\or
+            \mathparagraph\or \ddagger\or \|\or **\or \dagger\dagger
+        \or \ddagger\ddagger \else\@ctrerr\fi}}
 
 
 
