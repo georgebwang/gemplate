@@ -1,5 +1,5 @@
 # Gemplate
-This is a self-made LaTeX Article template. It includes all the common packages I use, as well as other configurations such as citations using BibLaTeX, font style, and document layout. Please check out the working example ([PDF](example.pdf)) for a preview of the document layout.
+This is a self-made LaTeX Article template. It includes all the common packages I use, as well as other configurations such as citations using BibLaTeX, font style, and document layout. Please check out the working example ([PDF](gemplate-example.pdf)) for a preview of the document layout.
 
 ## Usage
 
