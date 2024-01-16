@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gemplate}[2023/05/03]
+\ProvidesPackage{gemplate}[2024/01/16]
 
 
 \RequirePackage{graphicx}
@@ -34,15 +34,20 @@
 
 % fonts
 \usepackage[T1]{fontenc}
-% \usepackage{newpxtext}
-% \usepackage[proportional,scaled=1.064]{erewhon}
-\usepackage{XCharter}
-% \usepackage{stickstootext}
+
+\usepackage[semibold]{CrimsonPro}
+%% The font package uses mweights.sty which has som issues with the
+%% \normalfont command. The following two lines fixes this issue.
+\let\oldnormalfont\normalfont
+\def\normalfont{\oldnormalfont\mdseries}
+
+
 \usepackage{eulervm} % maths font
 
 
+
 % document layout
-\linespread{1.66} % double spacing
+\linespread{1.5}
 \usepackage{indentfirst} % indent first sentence of a new section
 
 % table numbering in appendices (e.g., Table A.1)
