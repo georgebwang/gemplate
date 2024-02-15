@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gemplate}[2024/02/13]
+\ProvidesPackage{gemplate}[2024/02/15]
 
 \RequirePackage{import}
 \RequirePackage{graphicx}
@@ -35,20 +35,30 @@
 % fonts
 \usepackage[T1]{fontenc}
 
-\usepackage[semibold]{CrimsonPro}
-%% The font package uses mweights.sty which has som issues with the
-%% \normalfont command. The following two lines fixes this issue.
-\let\oldnormalfont\normalfont
-\def\normalfont{\oldnormalfont\mdseries}
-
+\usepackage{crimson}
 
 \usepackage{eulervm} % maths font
+
+
+
+
 
 
 
 % document layout
 \linespread{1.5}
 \usepackage{indentfirst} % indent first sentence of a new section
+
+
+
+% add chapter functionality in article class
+\newcounter{Chapcounter}
+\newcommand\showmycounter{\addtocounter{Chapcounter}{1}\themycounter}
+\newcommand{\chapter}[1] 
+{ {\centering          
+  \addtocounter{Chapcounter}{1} \Large \textbf{~#1}}   
+  \addcontentsline{toc}{section}{~#1}    
+} 
 
 % table numbering in appendices (e.g., Table A.1)
 % not working properly
