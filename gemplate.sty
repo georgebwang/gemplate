@@ -1,9 +1,42 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gemplate}[2024/02/15]
+\ProvidesPackage{gemplate}[2024/08/30]
 
 \RequirePackage{import}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
+\RequirePackage[hyphens,nobiblatex]{xurl} % break url in the middle to fit in the space
+
+\RequirePackage{subfiles}
+
+
+% tabularray
+\RequirePackage{tabularray}
+\UseTblrLibrary{booktabs}
+% set tblr caption same as table enviro
+\ExplSyntaxOn
+\prg_generate_conditional_variant:Nnn \tl_if_empty:n { e } { TF }
+\let \IfTokenListEmpty = \tl_if_empty:eTF
+\ExplSyntaxOff
+% modifying the captions of tabularray
+\DefTblrTemplate{firsthead}{default}{%
+  \addtocounter{table}{-1}%
+  \IfTokenListEmpty{\InsertTblrText{entry}}{%
+    \captionof{table}{\InsertTblrText{caption}}%
+  }{%
+    \captionof{table}[\InsertTblrText{entry}]{\InsertTblrText{caption}}%
+  }%
+}
+
+\SetTblrTemplate{caption-lot}{empty}
+
+% remove captions at continuing pages in long table 
+\DefTblrTemplate{capcont}{default}{} 
+ % remove row gaps to make it compact
+\SetTblrInner{rowsep=0pt}
+
+
+
+
 \RequirePackage{bookmark}
 \RequirePackage{booktabs}
 \RequirePackage{csquotes}
@@ -24,6 +57,9 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{enumitem}
+% \RequirePackage[symbol*]{footmisc}
+
+
 \RequirePackage[american]{babel}
 \RequirePackage[backend=biber,style=apa,uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2,doi=false,annotation=false,natbib=true]{biblatex}
 % first cite use full author list, all others use `et al'
@@ -31,6 +67,8 @@
 % remove the letter (2021a, 2021b) following same first author surname
 \AtEveryCitekey{\clearfield{extradate}}
 \AtEveryBibitem{\clearfield{extradate}}
+
+
 
 % fonts
 \usepackage[T1]{fontenc}
@@ -49,7 +87,10 @@
 \linespread{1.5}
 \usepackage{indentfirst} % indent first sentence of a new section
 
-
+% but do not indent abstract
+\usepackage{etoolbox}
+\ifundef{\abstract}{}{\patchcmd{\abstract}%
+    {\quotation}{\quotation\noindent\ignorespaces}{}{}}
 
 % add chapter functionality in article class
 \newcounter{Chapcounter}
