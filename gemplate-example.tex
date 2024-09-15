@@ -18,7 +18,7 @@ Author 2\thanks{\protect\linespread{1}\protect\selectfont Hi! I am Author 2.}}
 \maketitle
 
 \begin{abstract}
-    To use the template, add \texttt{usepackage\{gemplate\}} to your preamble. This template has only been tested for the \texttt{article} document class. It uses the \texttt{CrimsonPro} font style, the \texttt{eulervm} math style, as well as other configurations such as citations using the biblatex engine.
+    To use the template, add \texttt{\textbackslash usepackage\{gemplate\}} to the preamble. This template has only been tested for the \texttt{article} document class. It uses the \texttt{Crimson} font style, the \texttt{eulervm} math style, as well as other configurations such as citations using the  \texttt{biblatex} engine \& tables using the very flexible \texttt{tblr} envrionment.
 \end{abstract}
 
 \newpage
@@ -33,6 +33,26 @@ $$
 
 \lipsum[2-3]
 
+
+
+\begin{table}[h]
+    
+    \centering
+
+    \caption{\textbf{Summary statistics} \newline This table is for illustration purposes only. The table is generated using the \texttt{tblr} environment from the \texttt{tabularray} package.}
+    
+    \label{tab:lable}
+
+    \begin{tblr}
+        {colspec={X[3,l,m] *{6}{X[c,m]}},width=\textwidth}
+        \toprule
+        Variable & N & Mean & Std & P25 & Median & P75 \\ \midrule
+        X & 10000 & a & b & c & d & e \\
+        Y & 10000 & f & g & h & i & j \\
+        Z & 10000 & k & l & m & n & o \\ \bottomrule   
+    \end{tblr}
+
+\end{table}
 
 
 \end{document}
