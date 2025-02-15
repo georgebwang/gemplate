@@ -1,12 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gemplate}[2024/08/30]
+\ProvidesPackage{gemplate}[2025/02/13]
 
 \RequirePackage{import}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage[hyphens,nobiblatex]{xurl} % break url in the middle to fit in the space
-
-\RequirePackage{subfiles}
+\RequirePackage{subfiles} % subfiles to split the whole document into parts, but not recommended as compile is slow, use \input{} instead
 
 
 % tabularray
@@ -59,16 +58,19 @@
 \RequirePackage{enumitem}
 % \RequirePackage[symbol*]{footmisc}
 
+%% biblatex setup
+% \RequirePackage[american]{babel}
+% \RequirePackage[backend=biber,style=apa,uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2,doi=false,annotation=false,natbib=true]{biblatex}
+% % first cite use full author list, all others use `et al'
+% \AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{99}}}
+% % remove the letter (2021a, 2021b) following same first author surname
+% \AtEveryCitekey{\clearfield{extradate}}
+% \AtEveryBibitem{\clearfield{extradate}}
 
-\RequirePackage[american]{babel}
-\RequirePackage[backend=biber,style=apa,uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2,doi=false,annotation=false,natbib=true]{biblatex}
-% first cite use full author list, all others use `et al'
-\AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{99}}}
-% remove the letter (2021a, 2021b) following same first author surname
-\AtEveryCitekey{\clearfield{extradate}}
-\AtEveryBibitem{\clearfield{extradate}}
-
-
+%% bibtex setup
+\usepackage[american]{babel}
+\usepackage[longnamesfirst]{natbib}
+\bibliographystyle{apalike} % change here for your preferred reference style
 
 % fonts
 \usepackage[T1]{fontenc}

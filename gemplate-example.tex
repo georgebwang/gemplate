@@ -4,13 +4,11 @@
 
 \usepackage{lipsum} % fill in random text
 
-\title{\textbf{This is an Example using the Gemplate Package}}
-\author{Author 1\thanks{\protect\linespread{1}\protect\selectfont Thank you for taking a look at this simple \LaTeX \ article template!} \hspace{15ex}
-Author 2\thanks{\protect\linespread{1}\protect\selectfont Hi! I am Author 2.}}
+\title{\textbf{This is an Example using the \texttt{gemplate} Package}\thanks{Thank you for taking a look at this simple \LaTeX \ article template!}}
+\author{Author 1\thanks{\protect\linespread{1}\protect\selectfont Contact info for Author 1.} \hspace{15ex}
+Author 2\thanks{\protect\linespread{1}\protect\selectfont Contact info for Author 2.}}
 \date{\today}
 
-
-\addbibresource{}
 
 
 \begin{document}
@@ -18,7 +16,7 @@ Author 2\thanks{\protect\linespread{1}\protect\selectfont Hi! I am Author 2.}}
 \maketitle
 
 \begin{abstract}
-    To use the template, add \texttt{\textbackslash usepackage\{gemplate\}} to the preamble. This template has only been tested for the \texttt{article} document class. It uses the \texttt{Crimson} font style, the \texttt{eulervm} math style, as well as other configurations such as citations using the  \texttt{biblatex} engine \& tables using the very flexible \texttt{tblr} envrionment.
+    To use the template, add \texttt{\textbackslash usepackage\{gemplate\}} to the preamble. This template has only been tested for the \texttt{article} document class. It uses the \texttt{Crimson} font style, the \texttt{eulervm} math style, as well as other configurations such as citations using the  \texttt{bibtex} engine \& tables using the very flexible \texttt{tblr} envrionment.
 \end{abstract}
 
 \newpage
@@ -30,6 +28,8 @@ But before that, let's type up some math notations:
 $$
     y = \alpha + \beta_1x_1 + \beta_2x_2 + \varepsilon
 $$
+
+And, let's cite a paper: \cite{Maggiori-etal-2020-InternationalCurrenciesCapitalAllocation}. I use the \texttt{bibtex} engine in this template as it is compatible with the \LaTeX typesetting requirements of major journals in accounting, economics, and finance.
 
 \lipsum[2-3]
 
@@ -53,6 +53,16 @@ $$
     \end{tblr}
 
 \end{table}
+
+% reference
+\clearpage\newpage
+\section*{References}
+\begingroup
+\renewcommand{\section}[2]{} % for the article class; use \chapter for book or report class. This is to remove the "References" header default in bibtex/natbib.
+\bibliography{references}
+\endgroup
+
+
 
 
 \end{document}
