@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gemplate}[2025/02/13]
+\ProvidesPackage{gemplate}[2025/05/01]
 
 \RequirePackage{import}
 \RequirePackage{graphicx}
@@ -52,7 +52,9 @@
 \RequirePackage[toc, title]{appendix}
 \RequirePackage{nicefrac}       % compact symbols for 1/2, etc.
 \RequirePackage{microtype}      % microtypography
-\RequirePackage[margin=15pt,font=small,labelfont={bf,sf}]{caption}
+\DeclareCaptionLabelFormat{normallbl}{\normalfont#1~#2}
+\RequirePackage[margin=15pt,font={small,normalfont},labelfont={normallbl}, textfont={normalfont}]{caption}
+
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{enumitem}
@@ -70,12 +72,14 @@
 %% bibtex setup
 \usepackage[american]{babel}
 \usepackage[longnamesfirst]{natbib}
-\bibliographystyle{apalike} % change here for your preferred reference style
+\bibliographystyle{rfs}
 
 % fonts
 \usepackage[T1]{fontenc}
 
-\usepackage{crimson}
+% \usepackage{crimson}
+
+\usepackage{tinos}
 
 \usepackage{eulervm} % maths font
 
